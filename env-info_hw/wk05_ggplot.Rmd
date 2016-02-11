@@ -136,7 +136,7 @@ You'll join the [population](http://data.okfn.org/data/core/population) dataset 
 _**Task**. Calculate the per capita emissions by country (not World or EU28) and return the top 5 emitting countries for **2014**._
 
 
-```{r read co2 & popn, eval=TRUE}
+```{r read co2 & popn, eval=TRUE, warning=FALSE}
 library(readr)
 library(readxl) # install.packages('readxl')
 library(dplyr)
@@ -210,6 +210,21 @@ head(SUMTask, n = 5)
 ```
 
 
+## ggPlot
+
+```{r}
+thin <- read_csv('./data/thinning.csv')
+
+ThinPlot <- ggplot(thin, aes(x = postyears, y = plantc, col = as.factor(thin))) +
+            geom_point() +
+            theme_bw() +
+            ggtitle("Plant Biomass through years post thinning") +
+            labs(x = "Years since thinning", y = "Total Biomass (kgC/m2)", col = "Canopy\nRemoved (%)") 
+        
+        
+ThinPlot
+
+```
 
 
 
