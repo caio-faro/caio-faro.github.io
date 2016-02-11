@@ -213,6 +213,9 @@ head(SUMTask, n = 5)
 ## ggPlot
 
 ```{r}
+
+require(ggplot2)
+
 thin <- read_csv('./data/thinning.csv')
 
 ThinPlot <- ggplot(thin, aes(x = postyears, y = plantc, col = as.factor(thin))) +
