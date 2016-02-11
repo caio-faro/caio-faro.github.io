@@ -1,0 +1,33 @@
+---
+title: "plot"
+author: "Caio Faro"
+date: "February 11, 2016"
+output: html_document
+---
+
+## GGPlot
+
+```{r, message=FALSE, warning=FALSE}
+require(ggplot2)
+require(dplyr)
+require(tidyr)
+require(readr)
+
+```
+
+```{r}
+thin <- read_csv('./data/thinning.csv')
+
+ThinPlot <- ggplot(thin, aes(x = postyears, y = plantc, col = as.factor(thin))) +
+            geom_point() +
+            theme_bw() +
+            ggtitle("Plant Biomass through years post thinning") +
+            labs(x = "Years since thinning", y = "Total Biomass (kgC/m2)", col = "Canopy\nRemoved (%)") 
+        
+        
+ThinPlot
+
+
+```
+
+
