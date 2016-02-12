@@ -235,4 +235,4 @@ ThinPlot
 #### Group
 
 
-The ggplot made with Group data can be found [here](fishmgt.github.io/wk05_ggplot_CF.html).
+The ggplot made with Group data can be found [here](http://fishmgt.github.io/wk05_ggplot_CF.html).
