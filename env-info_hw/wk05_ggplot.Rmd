@@ -212,6 +212,8 @@ head(SUMTask, n = 5)
 
 ## ggPlot
 
+#### Individual
+
 ```{r}
 
 require(ggplot2)
@@ -230,4 +232,7 @@ ThinPlot
 ```
 
 
+#### Group
 
+
+The ggplot made with Group data can be found [here](fishmgt.github.io/wk05_ggplot_CF.html).
