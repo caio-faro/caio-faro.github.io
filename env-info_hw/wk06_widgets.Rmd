@@ -1,0 +1,62 @@
+---
+title: "wk06_widgets"
+author: "Caio Faro"
+date: "February 12, 2016"
+output: html_document
+---
+
+
+**Task.** Add another R chunk with a slider adjusting the number of bins from 5 to 50, with step increments of 5.
+
+
+```{r task1, eval=FALSE}
+manipulate({
+  
+  faithful %>%
+    ggplot(aes(eruptions)) + 
+    geom_histogram(aes(y = ..density..),  bins = b) +
+    geom_density(color='blue', size=2, adjust=a) +
+    xlab('duration (minutes)') +
+    ylab('frequency density') +
+    ggtitle('geyser eruption duration')
+  
+}, a = slider(min = 0, max = 2, initial = 1, label = 'bandwidth adjustment', step = 0.2),
+  b = slider(min = 5, max = 50, initial = 25, label = 'binwidth adjustment', step = 5))
+```
+
+
+
+**Task.** Add another R chunk that only applies the `add_tooltip` on mouse click.
+
+```{r task2, eval=FALSE}
+cars = mtcars %>%
+  add_rownames('model') %>%        # dplyr drops rownames
+  mutate(id = row_number()) # add an id column to use ask the key
+
+all_values <- function(x) {
+  if(is.null(x)) return(NULL)
+  row <- cars[cars$id == x$id, ]
+  paste0(names(row), ": ", format(row), collapse = "<br/>")
+}
+
+cars %>% 
+  ggvis(x = ~wt, y = ~mpg, key := ~id) %>%
+  layer_points() %>%
+  add_tooltip(all_values, 'click')
+```
+
+
+
+**Task.** Output the table again with `datatable` and set the `options` to have `pagelength` of just 5 rows. (See `?datatable` and <http://rstudio.github.io/DT/>).
+
+```{r task 3}
+library(DT) # install.packages('DT')
+
+# default datatable
+datatable(iris)
+
+# remove document elements
+datatable(iris, options = list(pageLength = 5, dom = 'tip'))
+```
+
+
