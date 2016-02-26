@@ -1,0 +1,16 @@
+---
+title: "wk08_shiny"
+author: "Caio Faro"
+date: "February 26, 2016"
+output: html_document
+---
+
+```{r echo = F}
+
+require(shiny)
+
+runGitHub("caio-faro.github.io", "caio-faro")
+
+
+```
+
