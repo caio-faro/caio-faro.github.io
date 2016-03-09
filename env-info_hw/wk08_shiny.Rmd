@@ -5,11 +5,11 @@ date: "February 26, 2016"
 output: html_document
 ---
 
-```{r echo = F}
+```{r eval = F}
 
 require(shiny)
 
-runGitHub("caio-faro.github.io", "caio-faro")
+runGitHub("caio-faro.github.io", "caio-faro", subdir = "env-info_hw/test_shiny1")
 
 
 ```
